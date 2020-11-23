@@ -122,6 +122,11 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_HDPARM=n" >> .config 
         echo "CONFIG_FIRMWARE_INCLUDE_FTPD=n" >> .config 
         #########################################################################################
+        cp -f .config configs/templates/$TNAME.config 
+        if [ ! -f configs/templates/$TNAME.config ] ; then
+        echo "configs/templates/$TNAME.config not found "
+        exit 1
+        fi
         sudo ./clear_tree
         sudo ./build_firmware_modify $TNAME
         sudo mv -f images/*.trx /opt/images/
