@@ -92,6 +92,8 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_PARTED/d' .config 
         sed -i '/CONFIG_FIRMWARE_INCLUDE_HDPARM/d' .config 
         sed -i '/CONFIG_FIRMWARE_INCLUDE_FTPD/d' .config 
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_LPRD/d' .config 
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_U2EC/d' .config 
         #########################################################################################
         echo "CONFIG_FIRMWARE_INCLUDE_CURL=n" >> .config # 去除用于 Drcom 的工具
         echo "CONFIG_FIRMWARE_INCLUDE_DOGCOM=n" >> .config # 去除用于 Drcom 的工具
@@ -121,6 +123,8 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_PARTED=n" >> .config 
         echo "CONFIG_FIRMWARE_INCLUDE_HDPARM=n" >> .config 
         echo "CONFIG_FIRMWARE_INCLUDE_FTPD=n" >> .config 
+        echo "CONFIG_FIRMWARE_INCLUDE_LPRD=n" >> .config 
+        echo "CONFIG_FIRMWARE_INCLUDE_U2EC=n" >> .config 
         #########################################################################################
         cp -f .config configs/templates/$TNAME.config 
         if [ ! -f configs/templates/$TNAME.config ] ; then
