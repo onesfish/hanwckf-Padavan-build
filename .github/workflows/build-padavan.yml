@@ -94,6 +94,15 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_FTPD/d' .config 
         sed -i '/CONFIG_FIRMWARE_INCLUDE_LPRD/d' .config 
         sed -i '/CONFIG_FIRMWARE_INCLUDE_U2EC/d' .config 
+        sed -i '/CONFIG_FIRMWARE_ENABLE_USB/d' .config 
+        sed -i '/CONFIG_FIRMWARE_ENABLE_UFSD/d' .config 
+        sed -i '/CONFIG_FIRMWARE_ENABLE_FAT/d' .config 
+        sed -i '/CONFIG_FIRMWARE_ENABLE_EXFAT/d' .config 
+        sed -i '/CONFIG_FIRMWARE_ENABLE_EXT2/d' .config 
+        sed -i '/CONFIG_FIRMWARE_ENABLE_EXT3/d' .config 
+        sed -i '/CONFIG_FIRMWARE_ENABLE_EXT4/d' .config 
+        sed -i '/CONFIG_FIRMWARE_ENABLE_FUSE/d' .config 
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_SERIAL/d' .config 
         #########################################################################################
         echo "CONFIG_FIRMWARE_INCLUDE_CURL=n" >> .config # 去除用于 Drcom 的工具
         echo "CONFIG_FIRMWARE_INCLUDE_DOGCOM=n" >> .config # 去除用于 Drcom 的工具
@@ -125,6 +134,15 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_FTPD=n" >> .config 
         echo "CONFIG_FIRMWARE_INCLUDE_LPRD=n" >> .config 
         echo "CONFIG_FIRMWARE_INCLUDE_U2EC=n" >> .config 
+        echo "CONFIG_FIRMWARE_ENABLE_USB=n" >> .config 
+        echo "CONFIG_FIRMWARE_ENABLE_UFSD=n" >> .config 
+        echo "CONFIG_FIRMWARE_ENABLE_FAT=n" >> .config 
+        echo "CONFIG_FIRMWARE_ENABLE_EXFAT=n" >> .config 
+        echo "CONFIG_FIRMWARE_ENABLE_EXT2=n" >> .config 
+        echo "CONFIG_FIRMWARE_ENABLE_EXT3=n" >> .config 
+        echo "CONFIG_FIRMWARE_ENABLE_EXT4=n" >> .config 
+        echo "CONFIG_FIRMWARE_ENABLE_FUSE=n" >> .config 
+        echo "CONFIG_FIRMWARE_INCLUDE_SERIAL=n" >> .config 
         #########################################################################################
         cp -f .config configs/templates/$TNAME.config 
         if [ ! -f configs/templates/$TNAME.config ] ; then
@@ -140,4 +158,3 @@ jobs:
       with:
         name: Padavan-packages
         path: /opt/images
-
